@@ -1,0 +1,196 @@
+{
+    "Owner": {
+        "name": "geekscrm",
+        "id": "23940000000303001",
+        "email": "geekscrm@geeksonsite.com"
+    },
+    "Company": null,
+    "Google_Geocodedtime": "2025-08-16T09:14:48-05:00",
+    "$currency_symbol": "$",
+    "ZServiceAddress_Id": null,
+    "Tax": {
+        "Tax_Authority_Id": null,
+        "Tax_Percentage": null,
+        "Tax_Exemption_Code": null,
+        "Tax_Authority": null,
+        "Tax_Id": null,
+        "Tax_Name": null,
+        "Tax_Exemption_Id": null,
+        "Taxable": null
+    },
+    "Latitude": 48.920062,
+    "ZBilling_Id": "6141967000002695056",
+    "Address_Name": null,
+    "Street_2": null,
+    "Street_1": null,
+    "Name": "AD-13495",
+    "Exchange_Rate": 1,
+    "Currency": "USD",
+    "$inactive": false,
+    "Asset": null,
+    "Zip_Code": null,
+    "id": "23940000000706235",
+    "Territory": null,
+    "$editable": true,
+    "City": "Ivano-frankivsk",
+    "Longitude": 24.708916,
+    "$permissions": {
+        "read": true,
+        "edit": true,
+        "delete": true
+    },
+    "Contact": {
+        "name": "Test",
+        "id": "23940000000706254"
+    },
+    "State": "Ivanofrankivska Oblast",
+    "Country": "Ukraine"
+},
+{
+    "Owner": {
+        "name": "geekscrm",
+        "id": "23940000000303001",
+        "email": "geekscrm@geeksonsite.com"
+    },
+    "Company": null,
+    "Google_Geocodedtime": "2025-08-16T09:14:48-05:00",
+    "$currency_symbol": "$",
+    "ZServiceAddress_Id": null,
+    "Tax": {
+        "Tax_Authority_Id": null,
+        "Tax_Percentage": null,
+        "Tax_Exemption_Code": null,
+        "Tax_Authority": null,
+        "Tax_Id": null,
+        "Tax_Name": null,
+        "Tax_Exemption_Id": null,
+        "Taxable": null
+    },
+    "Latitude": 48.920062,
+    "ZBilling_Id": "6141967000002695058",
+    "Address_Name": null,
+    "Street_2": null,
+    "Street_1": null,
+    "Name": "AD-13494",
+    "Exchange_Rate": 1,
+    "Currency": "USD",
+    "$inactive": false,
+    "Asset": null,
+    "Zip_Code": null,
+    "id": "23940000000706234",
+    "Territory": null,
+    "$editable": true,
+    "City": "Ivano-frankivsk",
+    "Longitude": 24.708916,
+    "$permissions": {
+        "read": true,
+        "edit": true,
+        "delete": true
+    },
+    "Contact": {
+        "name": "Test",
+        "id": "23940000000706254"
+    },
+    "State": "Ivanofrankivska Oblast",
+    "Country": "Ukraine"
+}
+
+
+
+
+{
+    "Owner": {
+        "name": "geekscrm",
+        "id": "23940000000303001",
+        "email": "geekscrm@geeksonsite.com"
+    },
+    "Company": null,
+    "Google_Geocodedtime": "2025-08-10T03:53:51-05:00",
+    "$currency_symbol": "$",
+    "ZServiceAddress_Id": null,
+    "Tax": {
+        "Tax_Authority_Id": null,
+        "Tax_Percentage": null,
+        "Tax_Exemption_Code": null,
+        "Tax_Authority": null,
+        "Tax_Id": null,
+        "Tax_Name": null,
+        "Tax_Exemption_Id": null,
+        "Taxable": null
+    },
+    "Latitude": 41.719487,
+    "ZBilling_Id": "6141967000002055228",
+    "Address_Name": null,
+    "Street_2": null,
+    "Street_1": "411 VALLEY VIEW DR",
+    "Name": "AD-13469",
+    "Exchange_Rate": 1,
+    "Currency": "USD",
+    "$inactive": false,
+    "Asset": null,
+    "Zip_Code": "44077",
+    "id": "23940000000684857",
+    "Territory": null,
+    "$editable": true,
+    "City": "PAINESVILLE",
+    "Longitude": -81.229553,
+    "$permissions": {
+        "read": true,
+        "edit": true,
+        "delete": true
+    },
+    "Contact": {
+        "name": "ROBERT ALBAN",
+        "id": "23940000000689065"
+    },
+    "State": "OHIO",
+    "Country": "US"
+},
+{
+    "Owner": {
+        "name": "geekscrm",
+        "id": "23940000000303001",
+        "email": "geekscrm@geeksonsite.com"
+    },
+    "Company": null,
+    "Google_Geocodedtime": "2025-08-10T03:53:50-05:00",
+    "$currency_symbol": "$",
+    "ZServiceAddress_Id": null,
+    "Tax": {
+        "Tax_Authority_Id": null,
+        "Tax_Percentage": null,
+        "Tax_Exemption_Code": null,
+        "Tax_Authority": null,
+        "Tax_Id": null,
+        "Tax_Name": null,
+        "Tax_Exemption_Id": null,
+        "Taxable": null
+    },
+    "Latitude": 41.719487,
+    "ZBilling_Id": "6141967000002055230",
+    "Address_Name": null,
+    "Street_2": null,
+    "Street_1": "411 VALLEY VIEW DR, PAINESVILLE, OH 44077,",
+    "Name": "AD-13468",
+    "Exchange_Rate": 1,
+    "Currency": "USD",
+    "$inactive": false,
+    "Asset": null,
+    "Zip_Code": null,
+    "id": "23940000000684856",
+    "Territory": null,
+    "$editable": true,
+    "City": null,
+    "Longitude": -81.229553,
+    "$permissions": {
+        "read": true,
+        "edit": true,
+        "delete": true
+    },
+    "Contact": {
+        "name": "ROBERT ALBAN",
+        "id": "23940000000689065"
+    },
+    "State": null,
+    "Country": null
+}
