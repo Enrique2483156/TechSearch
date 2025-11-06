@@ -1,0 +1,85 @@
+node:internal/modules/cjs/loader:1404
+  throw err;
+  ^
+
+Error: Cannot find module '/opt/zoho-fsm-shifts/fetchFsmClients.js'
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: []
+}
+
+Node.js v22.17.1
+node:internal/modules/cjs/loader:1404
+  throw err;
+  ^
+
+Error: Cannot find module '/opt/zoho-fsm-shifts/fetchFsmClients.js'
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: []
+}
+
+Node.js v22.17.1
+helper.js loaded
+[dotenv@17.2.0] injecting env (12) from .env (tip: 🔐 encrypt with dotenvx: https://dotenvx.com)
+running get fsm clients to bd getClientsFsm.js
+Access token obtained.1000.9eadd5b6e3d709f27baa263afa8d9bdb.325a215e663d86e73ef87d4d522064f3
+All pages fetched and saved successfully.
+Data save completed successfully.
+helper.js loaded
+[dotenv@17.2.0] injecting env (12) from .env (tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] })
+running get fsm clients to bd getClientsFsm.js
+Access token obtained.1000.44fa0d933b924fddd4936b04a89a5ece.7607b3eb973cce6e53b42fdd039d4e81
+All pages fetched and saved successfully.
+Data save completed successfully.
+helper.js loaded
+[dotenv@17.2.0] injecting env (12) from .env (tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit)
+running get fsm clients to bd getClientsFsm.js
+Access token obtained.1000.7d87a3453b561e012078edd9bfda0ed2.fbf830adbadb75869ee42dc749bc0c88
+All pages fetched and saved successfully.
+Data save completed successfully.
+helper.js loaded
+[dotenv@17.2.1] injecting env (14) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+running get fsm clients to bd getClientsFsm.js
+Access token obtained.1000.118e4beecb4cb72056b3084475b47f36.0d0cc5318707163071607f5faeaab72a
+All pages fetched and saved successfully.
+Data save completed successfully.
+[dotenv@17.2.1] injecting env (13) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+running get fsm clients to bd getClientsFsm.js
+Access token obtained.1000.b0700f8a0379edc307a13cf7620deff9.0f13d8532a3801d3aa0690e5dc4a3ae2
+All pages fetched and saved successfully.
+Data save completed successfully.
+[dotenv@17.2.1] injecting env (13) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+running get fsm clients to bd getClientsFsm.js
+Access token obtained.1000.ef68bfeddb98a9cb227e8657e4d0afbd.e01e5e457d5a57480122468f2466eac2
+All pages fetched and saved successfully.
+Data save completed successfully.
+[dotenv@17.2.1] injecting env (14) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+running get fsm clients to bd getClientsFsm.js
+Access token obtained.1000.f7f0330f7d020349b41afbff112d32c2.dd37c9aea91296dee5cd1d2bda7e750c
+All pages fetched and saved successfully.
+Data save completed successfully.
+[dotenv@17.2.1] injecting env (14) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+running get fsm clients to bd getClientsFsm.js
+Access token obtained.1000.0c179cae6da288006efe27b60e0b65c7.21210af5645e475c92c781844538ecaf
+All pages fetched and saved successfully.
+Data save completed successfully.
+[dotenv@17.2.1] injecting env (14) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+running get fsm clients to bd getClientsFsm.js
+Access token obtained.1000.26f11bdd5ead99533f94c0de84c2bfb3.c640d10854c920edb9ef6e26d434257e
+All pages fetched and saved successfully.
+Data save completed successfully.

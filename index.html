@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>
+    if (window.self === window.top || !document.referrer.includes("https://crm.zoho.com")) {
+      document.write('<style>body{display:none !important}</style>');
+      document.write('Access denied — 403');
+      throw new Error("Blocked");
+    }
+  </script>
+  <meta charset="UTF-8" />
+  <title>Technician Search Form</title>
+
+  <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkyjPrepjaq0-5FEUINqWwXMsCflH1Fkw&libraries=places"></script>
+  <script type="module" src="/js/main.js"></script>
+  <style>
+    .pac-container {
+      z-index: 2000 !important;
+    }
+
+    body {
+      background: #f7f9fb;
+      font-size: .85rem;
+      color: #6b7280 !important;
+    }
+
+    .text-color-td {
+      color: #3f52b5 !important;
+    }
+
+    .table th {
+      color: #6b7280 !important;
+      font-weight: normal;
+    }
+
+    .table {
+      --bs-table-color: #6b7280;
+    }
+
+    .table> :not(caption)>*>* {
+      vertical-align: middle;
+    }
+
+    .slot {
+      display: inline-block;
+      background: #eef2ff;
+      color: #3f52b5;
+      border-radius: 9999px;
+      padding: .15rem .5rem;
+      /* font-size: .8rem; */
+      font-weight: 600;
+      margin: 0 .35rem .35rem 0;
+      white-space: nowrap;
+    }
+
+    .skills {
+      display: inline-block;
+      background: #3f53b5bd;
+      color: #fff;
+      border-radius: 9999px;
+      padding: .15rem .5rem;
+      font-size: .8rem;
+      font-weight: 600;
+      margin: 0 .35rem .35rem 0;
+      white-space: nowrap;
+    }
+
+
+    .slot-unavail {
+      background: #f3f4f6;
+      color: #6b7280;
+    }
+
+    .section-label {
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+  </style>
+</head>
+
+<body style="background-color:#eef1f9;">
+  <header class="py-3 mb-3 border-bottom">
+    <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr;">
+      <h3>Technicians Nearby</h3>
+    </div>
+  </header>
+
+  <div class="container-fluid pb-3">
+    <div class="d-grid gap-3" style="grid-template-columns: 1fr 2fr;">
+
+      <div class="bg-body-tertiary border rounded-3 p-3">
+        <form class="" id="searchForm">
+          <div class="form-group">
+            <label class="py-1" for="autocompleteSearch">Select Address from the dropdown list</label>
+            <input id="autocompleteSearch" class="form-control" placeholder="Start typing Address..." type="text" />
+            <!-- <div id="addressHelp" class="form-text">Start typing address or zip code for suggestions.</div> -->
+          </div>
+          <div class="py-1">or</div>
+          <div class="row pb-3">
+            <div class="col-6">
+              <div class="form-group mb-3">
+                <!-- <label for="zipcode"> Zip Code</label> -->
+                <input id="zipcode" class="form-control" placeholder="Enter Zip Code" type="text" />
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="input-group mb-3 d-flex justify-content-end">
+                <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" id="skillsDropdownBtn">
+                  Select Skills
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="skillsDropdownBtn" id="skillsDropdownMenu">
+                  <li>
+                    <label class="dropdown-item">
+                      <input type="checkbox" id="deselectAllSkills" class="form-check-input me-1">Deselect All
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col">
+              <div id="selectedSkillsPills" class="border rounded-2 p-2 d-flex flex-wrap gap-2" style="min-height: 38px;">
+
+              </div>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary btn-sm rounded-3" id="search-btn">Search</button>
+          <button type="button" class="btn btn-outline-danger btn-sm rounded-3 ms-3" id="resetSearch">Reset Search Form</button>
+        </form>
+      </div>
+
+      <div class="bg-body-tertiary border rounded-3 p-3">
+        <p class="pt-3 mb-2 ps-1 text-uppercase">Results for Contacts</p>
+        <div id="contacts-container" class="container">
+          <div class="row g-3">
+            <div class="table-responsive rounded-3 p-0" id="contacts-list"></div>
+          </div>
+          <button type="button" class="btn btn-primary btn-sm mt-3 d-none rounded-3" id="open-create-modal-btn" data-address="" data-bs-toggle="modal" data-bs-target="#createRecordModal">Create Contact or Lead</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container-fluid mt-1">
+    <div class="d-grid gap-3">
+      <div id="technicians-container" class="bg-body-tertiary border rounded-3 p-3">
+        <!-- <p class="mb-3 fw-bold">Technicians found Near Selected Address</p> -->
+        <div class="mt-3 d-none d-flex justify-content-end mb-3" id="create-order-container">
+          <button id="create-order-btn" class="btn btn-success">Create CRM Order</button>
+        </div>
+        <div class="row g-3">
+          <div class="table-responsive mt-3" id="technicians-list"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modal for Create Contact/Lead -->
+  <div class="modal fade" id="createRecordModal" tabindex="-1" aria-labelledby="createRecordModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form id="createRecordForm" class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="createRecordModalLabel">Create New Contact or Lead</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <!-- Record Type -->
+          <div class="mb-3">
+            <label class="form-label">Record Type</label><br />
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="recordType" id="contact" value="contact" checked>
+              <label class="form-check-label" for="contact">Contact</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="recordType" id="lead" value="lead">
+              <label class="form-check-label" for="lead">Lead</label>
+            </div>
+          </div>
+          <!-- First Name -->
+          <div class="mb-3">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter first name">
+          </div>
+          <!-- Last Name -->
+          <div class="mb-3">
+            <label for="lastName" class="form-label">Last Name </label>
+            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Enter last name">
+          </div>
+          <!-- Email -->
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address">
+          </div>
+
+          <!-- Address -->
+          <div class="mb-3">
+            <label for="autocompleteCreate" class="form-label">Full Address</label>
+            <input type="text" class="form-control" id="autocompleteCreate" name="autocompleteCreate" placeholder="Enter full address">
+          </div>
+
+          <!-- Zip Code -->
+          <div class="mb-3">
+            <label for="zipcodeCreate" class="form-label">Zip Code</label>
+            <input type="text" class="form-control" id="zipcodeCreate" name="zipcodeCreate" placeholder="Enter zip code">
+          </div>
+          <div class="mb-3">
+            <label for="contactType" class="form-label">Contact Type *</label>
+            <select class="form-select" id="contactType" name="contactType" required>
+              <option value="Individual" selected>Individual</option>
+              <option value="Business">Business</option>
+              <option value="Partnership">Partnership</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary btn-sm rounded-3">Create</button>
+          <button type="button" class="btn btn-outline-primary btn-sm rounded-3" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- Toast Container -->
+  <div class="toast-container top-0 end-0 p-3" style="z-index: 1100">
+    <!-- Success Toast -->
+    <div id="successToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body" id="successToastBody">
+          <!-- success message here -->
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+
+    <!-- Error Toast -->
+    <div id="errorToast" class="toast align-items-center text-bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body" id="errorToastBody">
+          <!-- error message here -->
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript"
+    id="zohodeskasap">var d = document; s = d.createElement("script"), s.type = "text/javascript", s.id = "zohodeskasapscript", s.defer = !0, s.nonce = "{place_your_nonce_value_here}", s.src = "https://desk.zoho.com/portal/api/web/asapApp/375850000041054303?orgId=686501562", t = d.getElementsByTagName("script")[0], t.parentNode.insertBefore(s, t), window.ZohoDeskAsapReady = function (s) { var e = window.ZohoDeskAsap__asyncalls = window.ZohoDeskAsap__asyncalls || []; window.ZohoDeskAsapReadyStatus ? (s && e.push(s), e.forEach(s => s && s()), window.ZohoDeskAsap__asyncalls = null) : s && e.push(s) };</script>
+  <script src="/js/bootstrap/bootstrap.bundle.min.js" defer></script>
+
+</body>
+
+</html>
